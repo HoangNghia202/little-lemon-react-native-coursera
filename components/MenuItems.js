@@ -94,7 +94,7 @@ const menuStyle = StyleSheet.create({
         borderColor: "#EDEFFE",
     },
     footerText: {
-        color: 'black',
+        color: '#000000',
         padding: 10,
         backgroundColor: yellow,
         textAlign: 'center'
