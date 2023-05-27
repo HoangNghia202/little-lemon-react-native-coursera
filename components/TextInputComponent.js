@@ -7,6 +7,7 @@ import {
     ScrollView,
     KeyboardAvoidingView,
     Platform,
+    Alert,
 } from "react-native";
 
 export default function FeedBackForm() {
@@ -35,26 +36,33 @@ export default function FeedBackForm() {
                     value={firstName}
                     onChangeText={onchangeFirstName}
                     placeholder="First name"
+                    onFocus={() => {
+                        alert("you click on first name");
+                    }}
+                    clearButtonMode="always"
                 />
                 <TextInput
                     style={styles.input}
                     value={lastName}
                     onChangeText={onchangeLastName}
                     placeholder="Last name"
+                    clearButtonMode="always"
                 />
                 <TextInput
                     style={styles.input}
                     value={phoneNum}
                     onChangeText={onchangePhoneNum}
                     placeholder="Phone Number"
+                    clearButtonMode="always"
                 />
                 <TextInput
                     style={styles.messageInput}
                     value={message}
-                    multiline={true}
+                    multiline={false}
                     onChangeText={onchangeMessage}
                     placeholder="Please leave feedback"
                     keyboardType="phone-pad"
+                    clearButtonMode="always" //this line only work on iphone device, you must set  multiline={false} to enable this line
                 />
             </ScrollView>
         </KeyboardAvoidingView>
