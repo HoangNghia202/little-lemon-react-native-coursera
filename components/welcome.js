@@ -6,9 +6,11 @@ import {
     Text,
     Image,
     useColorScheme,
+    useWindowDimensions,
 } from "react-native";
 const Welcome = () => {
     const theme = useColorScheme();
+    const { height, width, fontScale } = useWindowDimensions();
     console.log("theme>>", theme);
 
     return (
@@ -36,6 +38,12 @@ const Welcome = () => {
                     ]}
                 >
                     Little lemon, your local mediterranean Bistro
+                </Text>
+
+                <Text style={{ textAlign: "center" }}>
+                    height: {height} {"\n"}
+                    width:{width} {"\n"}
+                    fontScale: {fontScale}
                 </Text>
                 <Image
                     style={styles.image}
