@@ -72,7 +72,6 @@ export default function MenuItem() {
     const [openMenu, setOpenMenu] = useState(false);
 
     const renderItem = ({ item }) => {
-        console.log("item>>", item);
         return <Item name={item}></Item>;
     };
 

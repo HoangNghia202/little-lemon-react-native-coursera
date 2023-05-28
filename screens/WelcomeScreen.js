@@ -1,8 +1,17 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, useColorScheme } from "react-native";
-const WelcomeScreen = () => {
+import {
+    StyleSheet,
+    View,
+    Text,
+    Image,
+    useColorScheme,
+    Pressable,
+} from "react-native";
+
+const WelcomeScreen = ({ navigation }) => {
     const theme = useColorScheme();
     console.log("theme>>", theme);
+    console.log("hello");
 
     return (
         <View style={styles.container}>
@@ -22,6 +31,9 @@ const WelcomeScreen = () => {
             >
                 Little lemon, your local mediterranean Bistro
             </Text>
+            <Pressable onPress={() => navigation.navigate("Menu")}>
+                <Text style={styles.buttonText}>View Menu</Text>
+            </Pressable>
         </View>
     );
 };
@@ -51,6 +63,16 @@ const styles = StyleSheet.create({
         width: 300,
         resizeMode: "contain",
         alignSelf: "center",
+    },
+    buttonText: {
+        fontWeight: "bold",
+        fontSize: 20,
+        color: "#33333",
+        textAlign: "center",
+        padding: 5,
+        marginHorizontal: "20%",
+        borderRadius: 10,
+        backgroundColor: "#f4ce15",
     },
 });
 
