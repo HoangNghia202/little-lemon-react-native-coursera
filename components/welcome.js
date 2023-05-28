@@ -1,16 +1,48 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { ScrollView, StyleSheet, View, Text, Image } from "react-native";
 const Welcome = () => {
     return (
-        <View style={styles.container}>
-            <Image
-                style={styles.logo}
-                source={require("../img/littleLemonLogo.png")}
-            />
-            <Text style={styles.title}>
-                Little lemon, your local mediterranean Bistro
-            </Text>
-        </View>
+        <ScrollView>
+            <View style={styles.container}>
+                <Image
+                    style={styles.logo}
+                    source={require("../img/littleLemonLogo.png")}
+                    accessible={true}
+                    accessibilityLabel="little lemon logo"
+                />
+                <Text style={styles.title}>
+                    Little lemon, your local mediterranean Bistro
+                </Text>
+                <Image
+                    style={styles.image}
+                    resizeMode="cover"
+                    source={require("../img/Picture1.png")}
+                    accessible={true}
+                    accessibilityLabel="Food picture 1"
+                />
+                <Image
+                    style={styles.image}
+                    resizeMode="cover"
+                    source={require("../img/Picture2.png")}
+                    accessible={true}
+                    accessibilityLabel="Food picture 2"
+                />
+                <Image
+                    style={styles.image}
+                    resizeMode="cover"
+                    source={require("../img/Picture3.png")}
+                    accessible={true}
+                    accessibilityLabel="Food picture 3"
+                />
+                <Image
+                    style={styles.image}
+                    resizeMode="cover"
+                    source={require("../img/Picture4.png")}
+                    accessible={true}
+                    accessibilityLabel="Food picture 4"
+                />
+            </View>
+        </ScrollView>
     );
 };
 
@@ -20,6 +52,12 @@ const styles = StyleSheet.create({
         padding: 24,
         marginTop: 25,
         backgroundColor: "#fff",
+    },
+    image: {
+        height: 250,
+        width: 350,
+        borderRadius: 10,
+        marginVertical: 10,
     },
     title: {
         marginTop: 16,
