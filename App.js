@@ -4,12 +4,14 @@ import LittleLemonHeader from "./components/LittleLemonHeader";
 import LittleLemonFooter from "./components/LittleLemonHeader";
 import MenuItem from "./components/MenuItems";
 import FeedBackForm from "./components/TextInputComponent";
+import Welcome from "./components/welcome";
 export default function App() {
     return (
         <View style={styles.container}>
-            <LittleLemonHeader />
-            <MenuItem />
+            {/* <LittleLemonHeader /> */}
+            {/* <MenuItem /> */}
             {/* <FeedBackForm /> */}
+            <Welcome />
         </View>
     );
 }
