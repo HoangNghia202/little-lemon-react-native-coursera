@@ -1,16 +1,40 @@
 import React from "react";
-import { ScrollView, StyleSheet, View, Text, Image } from "react-native";
+import {
+    ScrollView,
+    StyleSheet,
+    View,
+    Text,
+    Image,
+    useColorScheme,
+} from "react-native";
 const Welcome = () => {
+    const theme = useColorScheme();
+    console.log("theme>>", theme);
+
     return (
-        <ScrollView>
-            <View style={styles.container}>
+        <ScrollView
+            style={[
+                styles.container,
+                theme === "light"
+                    ? { backgroundColor: "#fff" }
+                    : { backgroundColor: "#333333" },
+            ]}
+        >
+            <View>
                 <Image
                     style={styles.logo}
                     source={require("../img/littleLemonLogo.png")}
                     accessible={true}
                     accessibilityLabel="little lemon logo"
                 />
-                <Text style={styles.title}>
+                <Text
+                    style={[
+                        styles.title,
+                        theme === "light"
+                            ? { color: "#333333" }
+                            : { color: "#fff" },
+                    ]}
+                >
                     Little lemon, your local mediterranean Bistro
                 </Text>
                 <Image
@@ -51,7 +75,6 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 24,
         marginTop: 25,
-        backgroundColor: "#fff",
     },
     image: {
         height: 250,
@@ -62,7 +85,7 @@ const styles = StyleSheet.create({
     title: {
         marginTop: 16,
         paddingVertical: 10,
-        color: "#333333",
+
         textAlign: "center",
         fontSize: 20,
         fontWeight: "bold",
