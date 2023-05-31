@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, TextComponent, View } from "react-native";
+import { StyleSheet, Text, TextComponent, View, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LittleLemonHeader from "./components/LittleLemonHeader";
@@ -9,18 +9,45 @@ import FeedBackForm from "./components/TextInputComponent";
 import Welcome from "./components/welcome";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import MenuScreen from "./screens/MenuScreen";
+
+const Stack = createNativeStackNavigator();
+function LogoTitle() {
+    return (
+        <Image
+            source={require("./img/littleLemonSmall.png")}
+            style={{
+                heigh: 40,
+                width: 300,
+                resizeMode: "contain",
+                alignSelf: "center",
+            }}
+        />
+    );
+}
+
 export default function App() {
-    const Stack = createNativeStackNavigator();
     return (
         <NavigationContainer>
             <Stack.Navigator
                 initialRouteName="Welcome"
-                screenOptions={{ headerStyle: { backgroundColor: "#FBDABB" } }}
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: "#333333",
+                        textAlign: "center",
+                    },
+                    headerTintColor: "#fff",
+                    headerTitleStyle: {
+                        fontWeight: "bold",
+                    },
+                }}
             >
                 <Stack.Screen
-                    options={{ title: "Home" }}
                     name="Welcome"
                     component={WelcomeScreen}
+                    options={{
+                        title: "Home",
+                        headerTitle: (props) => <LogoTitle {...props} />,
+                    }}
                 />
                 <Stack.Screen name="Menu" component={MenuScreen} />
             </Stack.Navigator>
