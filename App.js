@@ -3,6 +3,7 @@ import { StyleSheet, Text, TextComponent, View, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import LittleLemonHeader from "./components/LittleLemonHeader";
 import LittleLemonFooter from "./components/LittleLemonHeader";
 import MenuItem from "./components/MenuItems";
@@ -15,6 +16,7 @@ import TabBarIcon from "@react-navigation/bottom-tabs/src/views/TabBarIcon";
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 function LogoTitle() {
     return (
         <Image
@@ -31,6 +33,7 @@ function LogoTitle() {
 
 export default function App() {
     return (
+        // Stack Navigator
         // <NavigationContainer>
         //     <Stack.Navigator
         //         initialRouteName="Welcome"
@@ -57,31 +60,40 @@ export default function App() {
         //     </Stack.Navigator>
         // </NavigationContainer>
 
+        // Bottom Tab Navigator
+        // <NavigationContainer>
+        //     <BottomTab.Navigator
+        //         screenOptions={(route) => {
+        //             tabBarIcon: ({ focused, color, size }) => {
+        //                 let iconName;
+        //                 if (route.name === "Welcome") {
+        //                     iconName = focused
+        //                         ? "ios-information-circle"
+        //                         : "ios-information-circle-outline";
+        //                 } else if (route.name === "Menu") {
+        //                     iconName = focused ? "ios-list-box" : "ios-list";
+        //                 }
+        //                 return (
+        //                     <Ionicons
+        //                         name={iconName}
+        //                         size={size}
+        //                         color={color}
+        //                     />
+        //                 );
+        //             };
+        //         }}
+        //     >
+        //         <BottomTab.Screen name="Welcome" component={WelcomeScreen} />
+        //         <BottomTab.Screen name="Menu" component={MenuScreen} />
+        //     </BottomTab.Navigator>
+        // </NavigationContainer>
+
+        // Drawer Navigator
         <NavigationContainer>
-            <BottomTab.Navigator
-                screenOptions={(route) => {
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName;
-                        if (route.name === "Welcome") {
-                            iconName = focused
-                                ? "ios-information-circle"
-                                : "ios-information-circle-outline";
-                        } else if (route.name === "Menu") {
-                            iconName = focused ? "ios-list-box" : "ios-list";
-                        }
-                        return (
-                            <Ionicons
-                                name={iconName}
-                                size={size}
-                                color={color}
-                            />
-                        );
-                    };
-                }}
-            >
-                <BottomTab.Screen name="Welcome" component={WelcomeScreen} />
-                <BottomTab.Screen name="Menu" component={MenuScreen} />
-            </BottomTab.Navigator>
+            <Drawer.Navigator initialRouteName="Welcome">
+                <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+                <Drawer.Screen name="Menu" component={MenuScreen} />
+            </Drawer.Navigator>
         </NavigationContainer>
     );
 }
