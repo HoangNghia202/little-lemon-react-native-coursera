@@ -68,7 +68,7 @@ const Item = ({ name }) => {
     );
 };
 
-export default function MenuItem() {
+export default function MenuItem({ navigation }) {
     const [openMenu, setOpenMenu] = useState(false);
 
     const renderItem = ({ item }) => {
@@ -104,6 +104,9 @@ export default function MenuItem() {
                 ItemSeparatorComponent={separator}
                 ListFooterComponent={footer}
             />
+            <Pressable onPress={navigation.goBack}>
+                <Text style={menuStyle.buttonText}> Go back</Text>
+            </Pressable>
         </View>
     );
 }
